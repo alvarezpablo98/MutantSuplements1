@@ -9,6 +9,8 @@ namespace MutantSuplements.API.AutoMapperProfiles
             CreateMap<Entities.Product, DTOs.ProductDTOs.ProductDTO>();
             CreateMap<DTOs.ProductDTOs.ProductToCreateDTO, Entities.Product>();
             CreateMap<Entities.Product, DTOs.ProductDTOs.ProductToCreateDTO > ();
+            CreateMap<DTOs.ProductDTOs.ProductUpdateDTO, Entities.Product>();
         }
     }
 }
+    

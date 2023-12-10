@@ -56,6 +56,7 @@ builder.Services.AddDbContext<MutantSuplementsContext>(dbContextOptions => dbCon
 
 //builder.Services.AddScoped<IOrdersRepository, OrdersRepository>();
 builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
+builder.Services.AddScoped<IProductCategoriesRepository, ProductCategoriesRepository>();
 //builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 
 builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntenticación que tenemos que elegir después en PostMan para pasarle el token

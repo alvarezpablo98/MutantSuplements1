@@ -23,25 +23,30 @@ namespace MutantSuplements.API.DBContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Product>()
+            .HasOne(p => p.Category)             // Un producto tiene una categoría
+            .WithMany(c => c.Products)           // Una categoría tiene muchos productos
+            .HasForeignKey(p => p.CategoryId);
+
             var productCategories = new ProductCategory[3]
             {
                 new ProductCategory()
                 {
                     Id = 1,
                     Name = "Muebles de Madera",
-                    Description = "Muebles grandes de madera.",
+                    Description = "Muebles grandes de madera."
                 },
                 new ProductCategory()
                 {
                     Id = 2,
                     Name = "Muebles medianos",
-                    Description = "Muebles medianos en oferta",
+                    Description = "Muebles medianos en oferta"
                 },
                 new ProductCategory()
                 {
                     Id = 3,
                     Name = "Muebles pequeños",
-                    Description = "Muebles pequeños para decoracion",
+                    Description = "Muebles pequeños para decoracion"
                 },
             };
             modelBuilder.Entity<ProductCategory>().HasData(productCategories);

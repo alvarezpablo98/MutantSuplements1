@@ -27,7 +27,10 @@ namespace MutantSuplements.API.Services.implementations
         {
             return _context.Products.Where(p => p.Name == name).Any();
         }
-
+        public bool ProductExistsByCategoryId(int id)
+        {
+            return _context.ProductCategories.Where(p => p.Id == id).Any();
+        }
         public void AddProduct(Product product)
         {
             _context.Products.Add(product);
@@ -36,6 +39,21 @@ namespace MutantSuplements.API.Services.implementations
         public bool SaveChanges()
         {
             return (_context.SaveChanges() >= 0);
+        }
+
+        public void Updated(Product product)
+        {
+
+            _context.Products.Update(product);
+        }
+        public Product? GetProductByName(string name)
+        {
+            return _context.Products.Where(p=> p.Name == name).FirstOrDefault();
+        }
+
+        public void DeleteProduct(Product product)
+        {
+            _context.Remove(product);
         }
     }
 
