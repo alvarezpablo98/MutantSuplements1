@@ -1,8 +1,3 @@
-//using FurnitureStore.API;
-//using FurnitureStore.API.DBContext;
-//using FurnitureStore.API.Services;
-//using FurnitureStore.API.Services.Implementations;
-//using FurnitureStore.API.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
@@ -49,15 +44,12 @@ builder.Services.AddSwaggerGen(setupAction =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*builder.Services.AddSingleton<Data>();*/ // durante toda la ejecucion de la app va a existir una instancia de esta clase, esta instancia va a ser siempre la misma
-//builder.Services.AddScoped<IEmailService, EmailService>();
-
 builder.Services.AddDbContext<MutantSuplementsContext>(dbContextOptions => dbContextOptions.UseSqlite(builder.Configuration["ConnectionString:MutantSuplementsDBConnectionString"])); // agregamos el context
 
-//builder.Services.AddScoped<IOrdersRepository, OrdersRepository>();
+builder.Services.AddScoped<IOrdersRepository, OrdersRepository>();
 builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
 builder.Services.AddScoped<IProductCategoriesRepository, ProductCategoriesRepository>();
-//builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 
 builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntenticación que tenemos que elegir después en PostMan para pasarle el token
    .AddJwtBearer(options => //Acá definimos la configuración de la autenticación. le decimos qué cosas queremos comprobar. La fecha de expiración se valida por defecto.

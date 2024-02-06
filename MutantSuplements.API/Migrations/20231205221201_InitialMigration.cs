@@ -44,55 +44,6 @@ namespace MutantSuplements.API.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "ProductCategories",
-                columns: new[] { "Id", "Description", "Name" },
-                values: new object[] { 1, "Muebles grandes de madera.", "Muebles de Madera" });
-
-            migrationBuilder.InsertData(
-                table: "ProductCategories",
-                columns: new[] { "Id", "Description", "Name" },
-                values: new object[] { 2, "Muebles medianos en oferta", "Muebles medianos" });
-
-            migrationBuilder.InsertData(
-                table: "ProductCategories",
-                columns: new[] { "Id", "Description", "Name" },
-                values: new object[] { 3, "Muebles pequeños para decoracion", "Muebles pequeños" });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price" },
-                values: new object[] { 1, 1, "La mesa de madera.", "Mesa", 420.0 });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price" },
-                values: new object[] { 2, 1, "La silla de madera.", "Silla", 320.0 });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price" },
-                values: new object[] { 3, 2, "El sillon comodo y lujoso.", "Sillon", 520.0 });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price" },
-                values: new object[] { 4, 2, "El ropero mas grande.", "Ropero", 520.0 });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price" },
-                values: new object[] { 5, 3, "Mesita pequeña con 3 patas.", "Mesita pequeña", 520.0 });
-
-            migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price" },
-                values: new object[] { 6, 3, "La cajonera con espacios divididos.", "Cajonera", 520.0 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_CategoryId",
-                table: "Products",
-                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

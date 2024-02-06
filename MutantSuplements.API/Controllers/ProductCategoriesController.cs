@@ -36,7 +36,6 @@ namespace MutantSuplements.API.Controllers
         }
 
         [HttpPost]
-
         public IActionResult AddProductCategory([FromBody] ProductCategoryAddDTO newCategory)
         {
             if (newCategory == null)
@@ -60,6 +59,7 @@ namespace MutantSuplements.API.Controllers
             }
             return Created("Created", newCategory);
         }
+
         [HttpDelete("{id}")]
         public IActionResult DeleteProductCategory(int id)
         {

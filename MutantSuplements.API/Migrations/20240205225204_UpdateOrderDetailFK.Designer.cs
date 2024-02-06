@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MutantSuplements.API.DBContext;
 
@@ -10,9 +11,10 @@ using MutantSuplements.API.DBContext;
 namespace MutantSuplements.API.Migrations
 {
     [DbContext(typeof(MutantSuplementsContext))]
-    partial class MutantSuplementsContextModelSnapshot : ModelSnapshot
+    [Migration("20240205225204_UpdateOrderDetailFK")]
+    partial class UpdateOrderDetailFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.25");

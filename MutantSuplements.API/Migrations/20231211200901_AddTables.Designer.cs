@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MutantSuplements.API.DBContext;
 
@@ -10,9 +11,10 @@ using MutantSuplements.API.DBContext;
 namespace MutantSuplements.API.Migrations
 {
     [DbContext(typeof(MutantSuplementsContext))]
-    partial class MutantSuplementsContextModelSnapshot : ModelSnapshot
+    [Migration("20231211200901_AddTables")]
+    partial class AddTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.25");
@@ -143,13 +145,13 @@ namespace MutantSuplements.API.Migrations
 
             modelBuilder.Entity("MutantSuplements.API.Entities.Order", b =>
                 {
-                    b.HasOne("MutantSuplements.API.Entities.User", "User")
-                        .WithMany()
+                    b.HasOne("MutantSuplements.API.Entities.User", "user")
+                        .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("MutantSuplements.API.Entities.OrderDetail", b =>
@@ -190,6 +192,11 @@ namespace MutantSuplements.API.Migrations
             modelBuilder.Entity("MutantSuplements.API.Entities.ProductCategory", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("MutantSuplements.API.Entities.User", b =>
+                {
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }
